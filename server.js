@@ -29,6 +29,29 @@ app.put('/clientes/:id', async (req, res) => {
     res.json(atualizarCliente.rows[0])
 })
 
+// app.post('/clientes', async (req, res) => {
+//     try {
+//         const { nome, email, cpf } = req.body;
+
+//         // 1. Executa o primeiro INSERT e usa RETURNING * para trazer o cliente criado
+//         const queryCliente = 'INSERT INTO clientes (nome, email) VALUES ($1, $2) RETURNING *;';
+//         const resultadoCliente = await pool.query(queryCliente, [nome, email]);
+
+//         // 2. Executa o segundo INSERT logo em seguida na tabela cpf
+//         const queryCpf = 'INSERT INTO cpf (cpf, id_clientes) VALUES ($1, LASTVAL());';
+//         await pool.query(queryCpf, [cpf]);
+
+//         // 3. Pega o cliente inserido do primeiro comando e responde para a API
+//         const novoCliente = resultadoCliente.rows[0];
+//         res.status(201).json(novoCliente);
+
+//     } catch (error) {
+//         console.error(error);
+//         res.status(500).json({ erro: 'Erro ao cadastrar cliente e CPF.' });
+//     }
+// });
+
+
 app.listen(PORT, () =>{
     console.log("Rodando em http://localhost:3000")
 })
