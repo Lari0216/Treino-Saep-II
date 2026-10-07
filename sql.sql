@@ -29,3 +29,12 @@ INSERT INTO clientes (nome, email) VALUES
 ('Miranda Ferreira', 'miranda_ferreira@gmail.com'),
 ('Nicole Silveira', 'nicole_silveira@gmail.com')
 ;
+
+SELECT 
+	clientes.nome,
+	clientes.email,
+	cpf.cpf
+	FROM
+	clientes 
+	JOIN cpf 
+	ON clientes.id = cpf.id_clientes
